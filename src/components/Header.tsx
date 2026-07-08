@@ -1,5 +1,6 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { User, LogOut } from 'lucide-react';
+import { showToast } from './Toast';
 
 export default function Header() {
   useLocation(); // trigger re-render on route change
@@ -88,9 +89,13 @@ export default function Header() {
               }}>
                 Log In
               </Link>
-              <Link to="/demo" className="filled-action-btn" style={{ textDecoration: 'none' }}>
+              <button 
+                onClick={() => showToast('Chức năng đặt lịch (Book a Demo) đang được bảo trì!', 'info')}
+                className="filled-action-btn" 
+                style={{ textDecoration: 'none', border: 'none', cursor: 'pointer' }}
+              >
                 Book a Demo
-              </Link>
+              </button>
             </>
           )}
         </div>
