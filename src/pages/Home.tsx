@@ -161,7 +161,7 @@ export default function Home() {
               { name: '7799 Storyteller', type: 'Trang Trí Cưới', rating: '4.8', price: 'Từ 20.000.000đ', img: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=400' },
               { name: 'Nupakachi Studio', type: 'Studio Chụp Ảnh', rating: '4.9', price: 'Từ 18.000.000đ', img: 'https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&q=80&w=400' },
               { name: 'White Palace', type: 'Nhà Hàng Tiệc Cưới', rating: '4.7', price: 'Từ 65.000.000đ', img: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=400' },
-              { name: 'Bul Nguyễn Makeup', type: 'Trang Điểm & Váy Cưới', rating: '5.0', price: 'Từ 8.500.000đ', img: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=400' }
+              { name: 'Bul Nguyễn Makeup', type: 'Trang Điểm & Váy Cưới', rating: '5.0', price: 'Từ 8.500.000đ', img: 'https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&q=80&w=400' }
             ].map((vendor, i) => (
               <div key={i} style={{ background: 'rgba(237,195,196,0.05)', borderRadius: '19.2px', border: '1px solid rgba(255,255,255,0.1)', overflow: 'hidden' }}>
                 <div style={{ height: '200px', width: '100%', overflow: 'hidden' }}>
