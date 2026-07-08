@@ -39,7 +39,7 @@
   --text-heading-lg: 64px;
   --leading-heading-lg: 1.2;
   --tracking-heading-lg: -0.64px;
-  --text-section-stamp: 74px;
+  --text-section-stamp: clamp(32px, 5.5vw, 74px);
   --leading-section-stamp: 0.9;
   --tracking-section-stamp: 14.8px;
   --text-display: 88px;
@@ -121,16 +121,15 @@ body {
 }
 
 .stamped-heading {
-    font-family: var(--font-whyte-inktrap-mono);
-    font-size: var(--text-section-stamp);
-    font-weight: var(--font-weight-regular);
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: var(--color-soft-white);
-    line-height: var(--leading-section-stamp);
-    white-space: nowrap;
-    overflow: hidden;
+    font-family: var(--font-grandslang);
+    font-size: clamp(32px, 5vw, 64px);
+    font-weight: 300;
+    font-style: italic;
+    text-align: center;
+    color: var(--color-almost-white);
+    line-height: 1.1;
     width: 100%;
+    margin-bottom: 24px;
 }
 
 .ghost-pill-btn {

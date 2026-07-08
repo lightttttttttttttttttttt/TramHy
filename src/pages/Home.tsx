@@ -72,7 +72,7 @@ export default function Home() {
       {/* Feature 1: AI Budgeting */}
       <section style={{ paddingTop: '120px', paddingBottom: '120px' }}>
         <div className="container" style={{ maxWidth: 'var(--page-max-width)' }}>
-          <h2 className="stamped-heading">A I   B U D G E T I N G</h2>
+          <h2 className="stamped-heading">AI Budgeting</h2>
           
           <div style={{ display: 'flex', gap: '40px', marginTop: '60px', alignItems: 'flex-start' }}>
             {/* Violet Bloom Card */}
@@ -124,7 +124,7 @@ export default function Home() {
       {/* Feature 2: Escrow */}
       <section style={{ paddingBottom: '120px', position: 'relative', zIndex: 1 }}>
         <div className="container" style={{ maxWidth: 'var(--page-max-width)' }}>
-          <h2 className="stamped-heading">E S C R O W   P A Y M E N T</h2>
+          <h2 className="stamped-heading">Escrow Payment</h2>
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', marginTop: '60px', position: 'relative' }}>
             {/* Route connecting line */}
@@ -152,7 +152,7 @@ export default function Home() {
       {/* Feature 3: Top Verified Vendors */}
       <section style={{ paddingBottom: '120px', position: 'relative', zIndex: 1 }}>
         <div className="container" style={{ maxWidth: 'var(--page-max-width)' }}>
-          <h2 className="stamped-heading">T O P   V E N D O R S</h2>
+          <h2 className="stamped-heading">Top Vendors</h2>
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px', marginTop: '60px' }}>
             {[
