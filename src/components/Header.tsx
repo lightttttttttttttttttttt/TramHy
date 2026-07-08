@@ -22,7 +22,7 @@ export default function Header() {
 
   return (
     <header className="frosted-nav-bar">
-      <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '80px', maxWidth: 'var(--page-max-width)' }}>
+      <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', minHeight: '80px', flexWrap: 'wrap', gap: '16px', padding: '16px 24px', maxWidth: 'var(--page-max-width)' }}>
         <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '12px' }}>
           <div style={{
             width: '40px',

@@ -20,9 +20,9 @@ export default function Home() {
       {/* Hero Section: Boarding Pass */}
       <section className="hero-boarding-pass" style={{ minHeight: '100vh', position: 'relative', display: 'flex', alignItems: 'center', zIndex: 1 }}>
         
-        <div className="container" style={{ position: 'relative', zIndex: 2, display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center', maxWidth: 'var(--page-max-width)' }}>
+        <div className="container flex-responsive" style={{ position: 'relative', zIndex: 2, display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center', gap: '40px', maxWidth: 'var(--page-max-width)' }}>
           {/* Left Column: Typographic Drama */}
-          <div style={{ flex: '0 0 55%' }}>
+          <div className="hero-drama" style={{ flex: '1 1 50%' }}>
             <h1 style={{ margin: 0, lineHeight: 0.9 }}>
               <span style={{ fontFamily: 'var(--font-grandslang)', fontSize: '146px', fontStyle: 'italic', display: 'block', fontWeight: 300, letterSpacing: '-0.03em' }}>Đám cưới</span>
               <span style={{ fontFamily: 'var(--font-whyte-inktrap)', fontSize: '64px', fontWeight: 400, display: 'block', letterSpacing: '-0.64px' }}>không rủi ro</span>
@@ -34,7 +34,7 @@ export default function Home() {
           </div>
           
           {/* Right Column: Glass Card Detailed Info */}
-          <div style={{ flex: '0 0 40%' }}>
+          <div style={{ flex: '1 1 40%', width: '100%' }}>
             <div style={{ background: 'rgba(237,195,196,0.05)', border: '1px solid var(--color-almost-white)', borderRadius: '19.2px', padding: '40px', backdropFilter: 'blur(10px)', display: 'flex', flexDirection: 'column', gap: '32px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <span style={{ fontFamily: 'var(--font-whyte-inktrap)', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.07em', fontWeight: 500, color: 'var(--color-signal-violet)' }}>Về Trạm Hỷ</span>
@@ -74,9 +74,9 @@ export default function Home() {
         <div className="container" style={{ maxWidth: 'var(--page-max-width)' }}>
           <h2 className="stamped-heading">AI Budgeting</h2>
           
-          <div style={{ display: 'flex', gap: '40px', marginTop: '60px', alignItems: 'flex-start' }}>
+          <div className="flex-responsive" style={{ display: 'flex', gap: '40px', marginTop: '60px', alignItems: 'flex-start' }}>
             {/* Violet Bloom Card */}
-            <div style={{ flex: '0 0 40%', background: 'var(--color-signal-violet)', borderRadius: '19.2px', padding: '40px', display: 'flex', flexDirection: 'column' }}>
+            <div style={{ flex: '1 1 40%', width: '100%', background: 'var(--color-signal-violet)', borderRadius: '19.2px', padding: '40px', display: 'flex', flexDirection: 'column' }}>
               <h3 style={{ fontFamily: 'var(--font-whyte-inktrap)', fontSize: '32px', fontWeight: 400, margin: '0 0 24px 0', color: '#000' }}>Trợ lý AI Ngân Sách</h3>
               <p style={{ margin: '0 0 24px 0', fontSize: '14px', color: '#000' }}>Nhập tổng ngân sách dự kiến, AI sẽ phân bổ tỷ lệ hoàn hảo dựa trên dữ liệu thị trường.</p>
               
@@ -95,7 +95,7 @@ export default function Home() {
             </div>
             
             {/* Results Table */}
-            <div style={{ flex: 1 }}>
+            <div style={{ flex: '1 1 100%', width: '100%' }}>
               {budgetResults ? (
                 <div style={{ background: 'rgba(237,195,196,0.05)', borderRadius: '19.2px', padding: '32px', border: '1px solid rgba(255,255,255,0.1)' }}>
                   <h4 style={{ fontFamily: 'var(--font-whyte-inktrap)', fontSize: '20px', margin: '0 0 24px 0', color: 'var(--color-almost-white)' }}>Bảng Phân Bổ Tối Ưu</h4>
@@ -126,7 +126,7 @@ export default function Home() {
         <div className="container" style={{ maxWidth: 'var(--page-max-width)' }}>
           <h2 className="stamped-heading">Escrow Payment</h2>
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', marginTop: '60px', position: 'relative' }}>
+          <div className="grid-responsive-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', marginTop: '60px', position: 'relative' }}>
             {/* Route connecting line */}
             <div style={{ position: 'absolute', top: '50%', left: '10%', right: '10%', height: '1px', background: 'rgba(247,249,250,0.2)', zIndex: 0 }}></div>
             
@@ -154,7 +154,7 @@ export default function Home() {
         <div className="container" style={{ maxWidth: 'var(--page-max-width)' }}>
           <h2 className="stamped-heading">Top Vendors</h2>
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px', marginTop: '60px' }}>
+          <div className="grid-responsive-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px', marginTop: '60px' }}>
             {[
               { name: 'TuArt Wedding', type: 'Studio Chụp Ảnh', rating: '4.9', price: 'Từ 15.000.000đ', img: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=400' },
               { name: 'Luxe Weddings', type: 'Nhà Hàng Tiệc Cưới', rating: '5.0', price: 'Từ 80.000.000đ', img: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&q=80&w=400' },
