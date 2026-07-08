@@ -186,19 +186,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Coordinate Footer */}
-      <footer style={{ background: 'transparent', padding: '0', marginTop: '120px', position: 'relative', zIndex: 1 }}>
-        <div style={{ background: '#090909', width: '100%', padding: '24px 0' }}>
-          <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontFamily: 'var(--font-whyte-inktrap)', fontSize: '14px', maxWidth: 'var(--page-max-width)' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--color-almost-white)' }}>
-              <span style={{ fontSize: '18px' }}>+</span>
-              <span>Fly Direct</span>
-              <span>Trạm Hỷ Escrow</span>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--color-almost-white)' }}>
-              <span>21.0285° N, 105.8542° E</span>
-              <span>♥</span>
-            </div>
+      {/* Footer */}
+      <footer style={{ background: '#090909', padding: '60px 0 40px 0', marginTop: '120px', position: 'relative', zIndex: 1, borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+        <div className="container" style={{ maxWidth: 'var(--page-max-width)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '24px' }}>
+          <h2 style={{ fontFamily: 'var(--font-grandslang)', fontSize: '32px', fontStyle: 'italic', color: 'var(--color-almost-white)', margin: 0, fontWeight: 300 }}>
+            Trạm Hỷ — Kết duyên cát hỷ
+          </h2>
+          
+          <div style={{ width: '60px', height: '1px', background: 'var(--color-signal-violet)', opacity: 0.5 }}></div>
+          
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', color: 'var(--color-steel)', fontFamily: 'var(--font-whyte-inktrap)', fontSize: '14px' }}>
+            <p style={{ margin: 0 }}>Founder: [Tên của bạn]</p>
+            <p style={{ margin: 0 }}>Liên hệ: [Số điện thoại / Email]</p>
+            <p style={{ margin: 0 }}>Địa chỉ: [Văn phòng của bạn]</p>
+          </div>
+          
+          <div style={{ marginTop: '24px', fontSize: '12px', color: 'rgba(255,255,255,0.2)', fontFamily: 'var(--font-whyte-inktrap)' }}>
+            © {new Date().getFullYear()} Trạm Hỷ. All rights reserved.
           </div>
         </div>
       </footer>
