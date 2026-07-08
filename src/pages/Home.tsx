@@ -1,18 +1,41 @@
 import { useState } from 'react';
 
+const BASE_CATEGORIES = [
+  { id: 'restaurant', label: 'Nhà hàng tiệc cưới', weight: 60 },
+  { id: 'photo', label: 'Chụp ảnh & Quay phim', weight: 15 },
+  { id: 'decor', label: 'Trang trí & Concept', weight: 10 },
+  { id: 'makeup', label: 'Váy cưới & Makeup', weight: 10 },
+  { id: 'contingency', label: 'Chi phí dự phòng', weight: 5 },
+];
+
 export default function Home() {
   const [aiBudget, setAiBudget] = useState('150000000');
+  const [selectedCategories, setSelectedCategories] = useState<string[]>(BASE_CATEGORIES.map(c => c.id));
   const [budgetResults, setBudgetResults] = useState<{label: string, percent: number, amount: number}[] | null>(null);
+
+  const toggleCategory = (id: string) => {
+    setSelectedCategories(prev => 
+      prev.includes(id) ? prev.filter(cId => cId !== id) : [...prev, id]
+    );
+  };
 
   const calculateBudget = () => {
     const total = parseInt(aiBudget) || 0;
-    setBudgetResults([
-      { label: 'Nhà hàng tiệc cưới', percent: 60, amount: total * 0.6 },
-      { label: 'Chụp ảnh & Quay phim', percent: 15, amount: total * 0.15 },
-      { label: 'Trang trí & Concept', percent: 10, amount: total * 0.1 },
-      { label: 'Váy cưới & Makeup', percent: 10, amount: total * 0.1 },
-      { label: 'Chi phí dự phòng', percent: 5, amount: total * 0.05 },
-    ]);
+    if (selectedCategories.length === 0) {
+      setBudgetResults([]);
+      return;
+    }
+    const activeCategories = BASE_CATEGORIES.filter(c => selectedCategories.includes(c.id));
+    const totalWeight = activeCategories.reduce((sum, c) => sum + c.weight, 0);
+    
+    setBudgetResults(activeCategories.map(c => {
+      const percent = (c.weight / totalWeight) * 100;
+      return {
+        label: c.label,
+        percent: Math.round(percent * 10) / 10,
+        amount: Math.round((percent / 100) * total)
+      };
+    }));
   };
 
   return (
@@ -78,7 +101,7 @@ export default function Home() {
             {/* Violet Bloom Card */}
             <div style={{ flex: '1 1 40%', minWidth: '300px', width: '100%', background: 'var(--color-signal-violet)', borderRadius: '19.2px', padding: '40px', display: 'flex', flexDirection: 'column' }}>
               <h3 style={{ fontFamily: 'var(--font-whyte-inktrap)', fontSize: '32px', fontWeight: 400, margin: '0 0 24px 0', color: '#000' }}>Trợ lý AI Ngân Sách</h3>
-              <p style={{ margin: '0 0 24px 0', fontSize: '14px', color: '#000' }}>Nhập tổng ngân sách dự kiến, AI sẽ phân bổ tỷ lệ hoàn hảo dựa trên dữ liệu thị trường.</p>
+              <p style={{ margin: '0 0 24px 0', fontSize: '14px', color: '#000' }}>Nhập tổng ngân sách dự kiến và chọn các dịch vụ cần thiết, AI sẽ tự động điều chỉnh phân bổ tỷ lệ hoàn hảo.</p>
               
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 <input 
@@ -88,6 +111,21 @@ export default function Home() {
                   placeholder="Nhập ngân sách (VNĐ)" 
                   style={{ padding: '16px', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.1)', background: 'rgba(255,255,255,0.8)', color: '#000', fontSize: '16px', fontFamily: 'var(--font-whyte-inktrap)' }} 
                 />
+                
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', background: 'rgba(255,255,255,0.2)', padding: '16px', borderRadius: '12px' }}>
+                  <span style={{ fontSize: '14px', fontWeight: 500, color: '#000' }}>Các dịch vụ cần thiết:</span>
+                  {BASE_CATEGORIES.map(cat => (
+                    <label key={cat.id} style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', color: '#000', fontSize: '14px' }}>
+                      <input 
+                        type="checkbox" 
+                        checked={selectedCategories.includes(cat.id)}
+                        onChange={() => toggleCategory(cat.id)}
+                        style={{ accentColor: '#000', width: '16px', height: '16px', cursor: 'pointer' }}
+                      />
+                      {cat.label}
+                    </label>
+                  ))}
+                </div>
                 <button onClick={calculateBudget} className="ghost-pill-btn" style={{ background: '#000', color: '#fff', borderColor: '#000', justifyContent: 'center', padding: '16px', borderRadius: '12px' }}>
                   Tính Toán Ngân Sách
                 </button>
