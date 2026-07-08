@@ -37,12 +37,25 @@ export default function Header() {
           }}>
             <img src="/logo.png" alt="Trạm Hỷ Logo" style={{ width: '120%', height: '120%', objectFit: 'cover', objectPosition: 'center 20%' }} />
           </div>
-          <span style={{ 
-            fontFamily: 'var(--font-whyte-inktrap)', 
-            fontSize: '18px', 
-            fontWeight: 500, 
-            color: 'var(--color-almost-white)' 
-          }}>Trạm Hỷ</span>
+          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <span style={{ 
+              fontFamily: 'var(--font-grandslang)', 
+              fontSize: '22px', 
+              fontWeight: 500, 
+              fontStyle: 'italic',
+              color: 'var(--color-almost-white)',
+              lineHeight: 1,
+              letterSpacing: '1px'
+            }}>Trạm Hỷ</span>
+            <span style={{
+              fontFamily: 'var(--font-whyte-inktrap)',
+              fontSize: '11px',
+              textTransform: 'uppercase',
+              letterSpacing: '0.15em',
+              color: 'var(--color-signal-violet)',
+              marginTop: '4px'
+            }}>Kết duyên cát hỷ</span>
+          </div>
         </Link>
         
         <nav style={{ display: 'flex', gap: '32px' }}>

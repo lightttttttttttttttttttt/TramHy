@@ -196,9 +196,8 @@ export default function Home() {
           <div style={{ width: '60px', height: '1px', background: 'var(--color-signal-violet)', opacity: 0.5 }}></div>
           
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', color: 'var(--color-steel)', fontFamily: 'var(--font-whyte-inktrap)', fontSize: '14px' }}>
-            <p style={{ margin: 0 }}>Founder: [Tên của bạn]</p>
-            <p style={{ margin: 0 }}>Liên hệ: [Số điện thoại / Email]</p>
-            <p style={{ margin: 0 }}>Địa chỉ: [Văn phòng của bạn]</p>
+            <p style={{ margin: 0 }}>Founder: Nhóm 5</p>
+            <p style={{ margin: 0 }}>Địa chỉ: Đại học FPT</p>
           </div>
           
           <div style={{ marginTop: '24px', fontSize: '12px', color: 'rgba(255,255,255,0.2)', fontFamily: 'var(--font-whyte-inktrap)' }}>
