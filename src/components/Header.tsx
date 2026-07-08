@@ -48,12 +48,11 @@ export default function Header() {
               letterSpacing: '1px'
             }}>Trạm Hỷ</span>
             <span style={{
-              fontFamily: 'var(--font-whyte-inktrap)',
-              fontSize: '11px',
-              textTransform: 'uppercase',
-              letterSpacing: '0.15em',
+              fontFamily: 'var(--font-grandslang)',
+              fontSize: '14px',
+              fontStyle: 'italic',
               color: 'var(--color-signal-violet)',
-              marginTop: '4px'
+              marginTop: '0px'
             }}>Kết duyên cát hỷ</span>
           </div>
         </Link>
