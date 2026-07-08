@@ -3,12 +3,13 @@ import { Sparkles, ArrowRight, Loader2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const defaultTasks = [
-  { id: 1, text: "Xác định ngân sách và khách mời", done: true },
-  { id: 2, text: "Chọn ngày cưới", done: true },
-  { id: 3, text: "Đặt nhà hàng (trên Trạm Hỷ)", done: false },
-  { id: 4, text: "Chụp ảnh Pre-wedding", done: false },
-  { id: 5, text: "Thử váy cưới & vest", done: false },
-  { id: 6, text: "Gửi thiệp mời", done: false },
+  { id: 1, text: "Xác định ngân sách và khách mời", done: true, weight: 0, category: '' },
+  { id: 2, text: "Chọn ngày cưới", done: true, weight: 0, category: '' },
+  { id: 3, text: "Đặt nhà hàng (trên Trạm Hỷ)", done: true, weight: 50, category: 'Nhà hàng', vendorName: 'Gem Center', vendorId: 'gem-center' },
+  { id: 4, text: "Chụp ảnh Pre-wedding", done: true, weight: 10, category: 'Chụp ảnh', vendorName: "L'Amour Studio", vendorId: '1' },
+  { id: 5, text: "Thuê váy cưới & vest", done: true, weight: 10, category: 'Trang phục', vendorName: 'Hacchic Couture', vendorId: 'hacchic' },
+  { id: 6, text: "Thuê dịch vụ trang trí", done: true, weight: 15, category: 'Trang trí', vendorName: 'Liti Florist', vendorId: 'liti-florist' },
+  { id: 7, text: "Gửi thiệp mời", done: false, weight: 0, category: '' },
 ];
 
 export default function Planning() {
@@ -34,14 +35,36 @@ export default function Planning() {
       if (budget.toLowerCase().includes('tỷ') || budget.toLowerCase().includes('ty')) amount = amount * 1000;
       else if (!budget.toLowerCase().includes('triệu') && amount < 100) amount = amount; // assume million
       
+      const activeTasks = tasks.filter(t => t.done && t.weight > 0);
+      let totalWeight = activeTasks.reduce((sum, t) => sum + t.weight, 0);
+      
+      // Always include 15 base weight for contingency
+      totalWeight += 15;
+
+      let resultCategories = activeTasks.map(t => {
+        const percentage = Math.round((t.weight / totalWeight) * 100);
+        return {
+          name: `${t.category} (${percentage}%)`,
+          percentage: percentage,
+          amount: `${Math.round((percentage / 100) * amount)} Tr`,
+          vendorName: t.vendorName,
+          vendorId: t.vendorId
+        };
+      });
+
+      const contingencyPercent = 100 - resultCategories.reduce((sum, cat) => sum + cat.percentage, 0);
+      
+      resultCategories.push({
+        name: `Dự phòng (${contingencyPercent}%)`,
+        percentage: contingencyPercent,
+        amount: `${Math.round((contingencyPercent / 100) * amount)} Tr`,
+        vendorName: 'Quỹ Dự Phòng',
+        vendorId: ''
+      });
+
       setPlan({
         totalBudget: `${amount} Triệu`,
-        categories: [
-          { name: 'Nhà hàng (50%)', percentage: 50, amount: `${amount * 0.5} Tr`, vendorName: 'Gem Center', vendorId: 'gem-center' },
-          { name: 'Trang trí (20%)', percentage: 20, amount: `${amount * 0.2} Tr`, vendorName: 'Liti Florist', vendorId: 'liti-florist' },
-          { name: 'Chụp ảnh & Trang phục (15%)', percentage: 15, amount: `${amount * 0.15} Tr`, vendorName: "L'Amour Studio", vendorId: '1' },
-          { name: 'Dự phòng (15%)', percentage: 15, amount: `${amount * 0.15} Tr`, vendorName: 'Quỹ Dự Phòng', vendorId: '' }
-        ]
+        categories: resultCategories
       });
       setIsGenerating(false);
     }, 1500);
