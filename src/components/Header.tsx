@@ -57,7 +57,7 @@ export default function Header() {
           </div>
         </Link>
         
-        <nav style={{ display: 'flex', gap: '32px' }}>
+        <nav className="mobile-hidden" style={{ display: 'flex', gap: '32px' }}>
           {[
             { name: 'TRANG CHỦ', path: '/' },
             { name: 'DỊCH VỤ', path: '/marketplace' },
@@ -77,7 +77,7 @@ export default function Header() {
           ))}
         </nav>
         
-        <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+        <div className="mobile-hidden" style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
           {account ? (
             <>
               <Link to={account.path} className="filled-action-btn" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', background: 'var(--color-signal-violet)', color: '#fff' }}>
